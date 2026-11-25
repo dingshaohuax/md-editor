@@ -17,7 +17,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		starlight({
-			title: 'md-editor',
+			title: 'Md-Editor',
 			description: '从 pnpm 工作区、组件库构建到文档和发布的 React 组件库工程模板。',
 			defaultLocale: 'zh-CN',
 			locales: {
