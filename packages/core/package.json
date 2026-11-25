@@ -1,0 +1,39 @@
+{
+  "name": "@dingshaohuax/md-editor",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "一个简单的组件库",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingshaohuax/md-editor.git",
+    "directory": "packages/core"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "@tsdown/css": "^0.23.7",
+    "@types/react": "^19.3.0",
+    "tsdown": "^0.23.7"
+  },
+  "peerDependencies": {
+    "react": "^19.3.1"
+  },
+  "tsdown": {
+    "dts": {
+      "generator": "oxc"
+    },
+    "platform": "neutral",
+    "css": {
+      "inject": true
+    }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  }
+}

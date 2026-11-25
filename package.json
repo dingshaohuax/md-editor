@@ -1,0 +1,23 @@
+{
+  "name": "md-editor",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm build && pnpm --parallel -F @dingshaohuax/md-editor -F doc dev",
+    "build": "pnpm -F @dingshaohuax/md-editor build"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.24.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@11.24.0",
+  "type": "module"
+}

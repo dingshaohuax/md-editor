@@ -1,0 +1,31 @@
+---
+title: React 组件库模板
+description: 用 pnpm、tsdown 和 Astro 搭建 React 组件库。
+template: splash
+hero:
+  tagline: 跑一遍组件、文档和发布，再照着搭自己的项目。
+  image:
+    html: |
+      <div class="repository-card">
+        <div class="repository-card-title">仓库结构</div>
+        <pre><code><span class="repository-card-path">md-editor/</span>
+        ├─ <span class="repository-card-path">packages/core/</span>      组件库
+        ├─ <span class="repository-card-path">apps/doc/</span>           文档和演示
+        └─ <span class="repository-card-path">.github/workflows/</span>  发布与部署</code></pre>
+      </div>
+  actions:
+    - text: 开始阅读
+      link: ./foundation/
+      icon: right-arrow
+    - text: 在线演示
+      link: ./playground/
+      variant: secondary
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import '../../styles/repository-card.css';
+
+<CardGrid>
+	<LinkCard title="项目基建" href="./foundation/" description="跑通模板，找到构建、文档和发布配置。" />
+	<LinkCard title="组件使用" href="./getting-started/" description="看 Button、Input 的小例子和在线演示。" />
+</CardGrid>
