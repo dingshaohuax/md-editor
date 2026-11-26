@@ -15,3 +15,51 @@
   padding: 0.75rem 1rem;
   outline: none;
 }
+
+.md-editor-bubble-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.1875rem;
+  padding: 0.25rem;
+  color: #e2e8f0;
+  background: #182333;
+  border: 1px solid #34445b;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 24%), 0 2px 6px rgb(15 23 42 / 16%);
+  z-index: 1;
+}
+
+.md-editor-bubble-menu > button {
+  display: grid;
+  place-items: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 0.4375rem;
+  cursor: pointer;
+}
+
+.md-editor-bubble-menu > button:hover {
+  color: #fff;
+  background: #2b3b51;
+}
+
+.md-editor-bubble-menu > button[aria-pressed='true'] {
+  color: #172c4c;
+  background: #bfdbfe;
+}
+
+.md-editor-bubble-menu:focus-visible,
+.md-editor-bubble-menu > button:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+}
+
+.md-editor-bubble-menu > button > svg {
+  display: block;
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
