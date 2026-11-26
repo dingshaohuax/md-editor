@@ -13,7 +13,10 @@ const homeHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 
 		<style>
 			body {
-				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				height: 100vh;
+				height: 100dvh;
 				margin: 0;
 				background: radial-gradient(ellipse at top, #e9f2ff, transparent 34rem) #f5f7fb;
 				color: #152541;
@@ -26,6 +29,7 @@ const homeHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 			}
 
 			.topbar {
+				flex: none;
 				border-bottom: 1px solid #dfe7f1;
 				background: rgb(255 255 255 / 90%);
 			}
@@ -65,18 +69,11 @@ const homeHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 			}
 
 			.playground {
-				padding-block: clamp(2rem, 7vw, 5rem) 3rem;
-			}
-
-			h1 {
-				margin: 0 0 clamp(1.25rem, 4vw, 2rem);
-				font-size: clamp(2rem, 5vw, 3rem);
-				line-height: 1.2;
-			}
-
-			.playground :global(.demo-grid) {
-				display: grid;
-				gap: 1rem;
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				min-height: 0;
+				padding-block: 2rem;
 			}
 
 			.playground :global(.demo-card) {
@@ -130,12 +127,6 @@ const homeHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 				font-size: 0.875rem;
 				font-weight: 500;
 			}
-
-			@media (min-width: 45rem) {
-				.playground :global(.demo-grid) {
-					grid-template-columns: repeat(2, minmax(0, 1fr));
-				}
-			}
 		</style>
 	</head>
 	<body>
@@ -149,7 +140,6 @@ const homeHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 			</div>
 		</header>
 		<main class="page-width playground">
-			<h1>组件演示</h1>
 			<Demo client:load />
 		</main>
 	</body>
