@@ -1,5 +1,6 @@
 import { useEditorState, type Editor } from '@tiptap/react'
 import { BubbleMenu, type BubbleMenuProps } from '@tiptap/react/menus'
+import type {} from '@tiptap/starter-kit' // Load the extension command declarations.
 import type { ReactElement } from 'react'
 import { LuBold, LuItalic } from 'react-icons/lu'
 
@@ -29,7 +30,6 @@ export default function MyBubbleMenu({ editor, options }: Props): ReactElement {
                 type="button"
                 aria-label="Bold"
                 aria-pressed={bold}
-                title="Bold"
                 onClick={() => editor.chain().focus().toggleBold().run()}
             >
                 <LuBold aria-hidden="true" />
@@ -38,7 +38,6 @@ export default function MyBubbleMenu({ editor, options }: Props): ReactElement {
                 type="button"
                 aria-label="Italic"
                 aria-pressed={italic}
-                title="Italic"
                 onClick={() => editor.chain().focus().toggleItalic().run()}
             >
                 <LuItalic aria-hidden="true" />
