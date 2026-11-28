@@ -1,32 +1,53 @@
+/* 占满父容器分配的空间，边框、底色和圆角在这里统一设置。 */
 .md-editor {
   display: flex;
   flex: 1;
   height: 100%;
   min-width: 0;
   min-height: 0;
-  border: #94a3b8 solid 1px;
+  border: #e7ebf0 solid 1px;
+  background-color: white;
   border-radius: 6px;
 }
 
+/* 内容在编辑区内滚动，左侧内边距给六点拖拽手柄留空间。 */
 .md-editor-content {
   box-sizing: border-box;
   width: 100%;
   overflow: auto;
   padding-block: 0.75rem;
   padding-inline: 2rem 1rem;
-  outline: none;
+  outline: none; /* 去掉编辑区原生的焦点外框。 */
 }
 
+/* 开放 Vizel 主菜单的溢出，让「转化为」的子菜单能向侧边展开。 */
 .vizel-block-menu.md-editor-block-menu {
   overflow: visible;
 }
 
+/* 用浅底和左侧细线标记 Vizel 块菜单的键盘焦点。 */
+.vizel-block-menu.md-editor-block-menu .vizel-block-menu-item:focus-visible {
+  outline: none;
+  background-color: var(--vizel-hover-bg);
+  box-shadow: inset 2px 0 var(--vizel-muted-foreground);
+}
+
+/* 高对比度模式下用系统色外框显示焦点。 */
+@media (forced-colors: active) {
+  .vizel-block-menu.md-editor-block-menu .vizel-block-menu-item:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+/* 限制子菜单高度，选项多时在菜单内部滚动。 */
 .md-editor-block-menu .vizel-block-menu-submenu {
   box-sizing: border-box;
   max-block-size: 100%;
   overflow-y: auto;
 }
 
+/* 窄屏把子菜单排到主菜单下方，避免横向超出窗口。 */
 @media (max-width: 34rem) {
   .md-editor-block-menu .vizel-block-menu-submenu {
     position: static;
@@ -37,6 +58,7 @@
   }
 }
 
+/* 选中文字的格式菜单与空行插入菜单共用深色面板。 */
 .md-editor-bubble-menu,
 .md-editor-floating-menu {
   display: flex;
@@ -51,6 +73,7 @@
   z-index: 1;
 }
 
+/* 统一菜单按钮的点击面积、图标对齐和基础颜色。 */
 :is(.md-editor-bubble-menu, .md-editor-floating-menu) > button {
   display: grid;
   place-items: center;
@@ -64,6 +87,7 @@
   cursor: pointer;
 }
 
+/* 空行菜单的按钮带文字，宽度随内容增长。 */
 .md-editor-floating-menu > button {
   grid-auto-flow: column;
   gap: 0.25rem;
@@ -79,17 +103,20 @@
   background: #2b3b51;
 }
 
+/* 加粗、斜体启用时，用浅蓝底标出当前格式。 */
 :is(.md-editor-bubble-menu, .md-editor-floating-menu) > button[aria-pressed='true'] {
   color: #172c4c;
   background: #bfdbfe;
 }
 
+/* 两个深色菜单的键盘焦点使用浅色外框。 */
 :is(.md-editor-bubble-menu, .md-editor-floating-menu):focus-visible,
 :is(.md-editor-bubble-menu, .md-editor-floating-menu) > button:focus-visible {
   outline: 2px solid #93c5fd;
   outline-offset: 1px;
 }
 
+/* 限定图标尺寸，避免图标之间大小不一致。 */
 :is(.md-editor-bubble-menu, .md-editor-floating-menu) > button > svg {
   display: block;
   width: 0.875rem;
